@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" th:xmlns="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<div class="container">
+    <form action="/members/new" method="post">
+        <label for="name">이름: </label>
+        <input id="name" name="name" type="text" placeholder="이름"/>
+        <input value="회원가입" type="submit"/>
+    </form>
+</div>
+</body>
+</html>
