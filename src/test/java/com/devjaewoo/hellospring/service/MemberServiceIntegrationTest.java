@@ -1,26 +1,25 @@
 package com.devjaewoo.hellospring.service;
 
 import com.devjaewoo.hellospring.domain.Member;
+import com.devjaewoo.hellospring.repository.MemberRepository;
 import com.devjaewoo.hellospring.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class MemberServiceTest {
+@SpringBootTest
+@Transactional
+public class MemberServiceIntegrationTest {
 
-    MemoryMemberRepository memberRepository;
-    MemberService memberService;
-
-    @BeforeEach
-    public void setUp() {
-        memberRepository = new MemoryMemberRepository();
-        memberRepository.clearStore();
-        memberService = new MemberService(memberRepository);
-    }
+    @Autowired MemberRepository memberRepository;
+    @Autowired MemberService memberService;
 
     @Test
     void join() {
